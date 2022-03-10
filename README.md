@@ -1,1 +1,1 @@
-# battleship
+Create an interactive battleship game using React, CSS & Jest.
