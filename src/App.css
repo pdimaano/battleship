@@ -1,38 +1,81 @@
+:root {
+  --primary: #3444ef;
+  --border: #979797;
+  --header: #071f42;
+  --background: #0b377f;
+  --miss: #efefef;
+  --ship: #ef2233;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background: #dddddd;
+  font-family: Roboto;
+  margin: 0%;
+  height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  min-height: 5vh;
+  color: var(--primary);
+  z-index: 2;
+}
+
+.header-game-name {
+  color: var(--primary);
+  font-size: 32px;
+  margin: 10px 40px 0px;
+}
+
+.boards-container {
+  display: flex;
+  width: 1000px;
+  margin: 10px auto;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 20px;
+  align-items: center;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.game-board {
+  margin: 0 auto;
+  width: 60vh;
+  height: 60vh;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  border: 8px solid var(--border);
+  cursor: pointer;
+  background-color: var(--primary);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.board-name {
+  border: var(--border);
+  font-size: 20px;
+  padding: 0 15px;
+}
+
+.grid-square.Player {
+  border: 1px solid #a3d0e2b9;
+}
+
+.hover-ship {
+  background-color: #448922;
+}
+
+.hover-aim {
+  background-color: #12ff0044;
+}
+
+.orientation-button {
+  color: #000000;
+  border: 8px solid var(--border);
+  outline: none;
+  font-size: 16px;
+  font-family: Roboto;
+  cursor: pointer;
 }
