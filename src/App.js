@@ -186,4 +186,39 @@ function App() {
     }
     return targets;
   };
+
+  const getPreferredTargets = () => {
+    if (targetValue.length < 2) return [];
+    const preferredTargets = [];
+    for (let i = 0; i < targetValue.length; i++) {
+      for (let j = 0; j < targetValue.length; j++) {
+        if (targetValue[i] === targetValue[j] + 1) {
+          if (targetValue[i] + (1 % 10) !== 0) {
+            preferredTargets.push(targetValue[i] + 1);
+          }
+          if (targetValue[j] % 10 !== 0) {
+            preferredTargets.push(targetValue[j] - 1);
+          }
+        }
+        if (targetValue[i] === targetValue[j] + 10) {
+          if (targetValue[i] + 10 < 100) {
+            preferredTargets.push(targetValue[i] + 10);
+          }
+          if (targetValue[j] - 10 >= 0) {
+            preferredTargets.push(targetValue[j] - 10);
+          }
+        }
+      }
+    }
+    console.log("preferredTargets: " + preferredTargets);
+    return preferredTargets;
+  };
+
+  const startGame = () => {
+    if (boardReady && !gameWon) {
+      setGameStarted(true);
+    } else if (gameWon) {
+      refresh();
+    }
+  };
 }
