@@ -53,7 +53,6 @@ function Gameboard({
                             handleHover={onHover}
                             cpuisHovering={cpuIsHovering}
                             cpuShips={cpuShips}
-                            setText={setText}
                             setCpuBoard={setCpuBoard}
                             cpuBoard={cpuBoard}
                             gameOver={gameOver}

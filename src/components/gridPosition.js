@@ -8,12 +8,22 @@ const GridPosition = ({
     currentPlayer,
     gameStarted,
     handleHover,
+    isHovering = [],
+    cpuIsHovering = [],
     cpuShips,
     cpuBoard,
     setCpuBoard,
     gameOver,
     gameWon
     }) => {
+
+    let classname = 'square';
+    if (isHovering) {
+        classname += isHovering.includes(coords) ? ' hover-ship' : '';
+    }
+    if (cpuIsHovering) {
+        classname += cpuIsHovering.includes(coords) ? ' hover-aim' : '';
+    }
     
     const handleClick = (e) => {
         if(gameWon) return
@@ -35,7 +45,7 @@ const GridPosition = ({
             for(let i = 0; i < cpuShips.length; i++){
                 for(let j = 0; j < cpuShips[i].coords.length; j++){
                     if (cpuShips[i].coords[j] === coords){
-                        document.getElementById(`${board}-${coords}`).style.backgroundColor = "var(--alertRed)";
+                        document.getElementById(`${board}-${coords}`).style.backgroundColor = "red";
                         cpuShips[i].health --;
                         if(cpuShips[i].health === 0){
                             cpuShips[i].status = "sunk";
@@ -65,13 +75,14 @@ const GridPosition = ({
         }
     };
 
-return(
-    <div
-        onClick={(e) => handleClick(e)}
-        onMouseEnter={hoverPositions}
-        id={`${board}-${coords}`}
-    />
-)
+    return(
+        <div
+            className={`grid-square ${board} ${classname}`}
+            onClick={(e) => handleClick(e)}
+            onMouseEnter={hoverPositions}
+            id={`${board}-${coords}`}
+        />
+    )
 }
 
 export default GridPosition

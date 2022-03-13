@@ -37,7 +37,7 @@ function App() {
   useEffect(() => {
     if (gameWon) return;
     if (currentPlayer === "Computer") {
-      setTimeout(() => cpuTurn(), 2000);
+      setTimeout(() => cpuTurn(), 1000);
     }
   }, [currentPlayer]);
 
@@ -88,6 +88,8 @@ function App() {
     for (let i = 0; i < ships.length; i++) {
       for (let j = 0; j < ships[i].coords.length; j++) {
         if (ships[i].coords[j] === attack) {
+          document.getElementById(`Player-${attack}`).style.backgroundColor =
+            "red";
           ships[i].health--;
           setTargetValue((prev) => [...prev, attack]);
           console.log("adding targets: " + attack);
