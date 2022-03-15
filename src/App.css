@@ -4,7 +4,7 @@
   --header: #071f42;
   --background: #0b377f;
   --miss: #efefef;
-  --ship: #928c8c;
+  --ship: #6e6a6a;
 }
 
 .App {
@@ -54,13 +54,13 @@ header {
 
 .board-name {
   border: var(--border);
-  font-size: 20px;
+  font-size: 25px;
   padding: 0 10px;
 }
 
 .grid-square {
   position: relative;
-  border: 1px solid #77c08f;
+  border: 1px solid #4b9c66;
   width: 100%;
   height: 100%;
   display: flex;
@@ -72,11 +72,11 @@ header {
 }
 
 .grid-square.Player {
-  border: 1px solid #a3d0e2b9;
+  border: 1px solid #b5d4e0b9;
 }
 
 .hover-ship {
-  background-color: #9fd684;
+  background-color: #a0b695;
 }
 
 .hover-aim {
@@ -85,6 +85,7 @@ header {
 
 .orientation-button {
   color: #000000;
+  padding: 5px;
   border: 2px solid var(--border);
   outline: none;
   font-size: 16px;
