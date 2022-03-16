@@ -1,7 +1,7 @@
 const shipStatus = (coordsArr, isRotated) => {
     const coords = coordsArr;
     const rotated = isRotated;
-    let health = coordsArr.lenth;
+    let health = coordsArr.length;
 
     const hit = () => {
         health--;
